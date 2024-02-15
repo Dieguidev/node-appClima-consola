@@ -30,15 +30,21 @@ const main = async () => {
         // console.log({ selectedPlace });
 
         // Clima
+        const weather = await searches.placeWeather(
+          selectedPlace.lat,
+          selectedPlace.lng
+        );
+        // console.log({ weather });
 
         // Mostrar resultado
         console.log('\nInformación de la ciudad\n'.green);
         console.log('Ciudad:', selectedPlace.name);
         console.log('Latitud:', selectedPlace.lat);
         console.log('Longitud:', selectedPlace.lng);
-        console.log('Temperatura:');
-        console.log('Temperatura mínima:');
-        console.log('Temperatura máxima:');
+        console.log('Como esta el clima', weather.desc.yellow);
+        console.log('Temperatura:', weather.temp);
+        console.log('Temperatura mínima:', weather.min);
+        console.log('Temperatura máxima:', weather.max);
 
         break;
 
