@@ -9,7 +9,7 @@ class Searches {
 
   get paramsMapbox() {
     return {
-      proximity: 'ip',
+      // proximity: 'ip',
       language: 'es',
       limit: 5,
       access_token: process.env.MAPBOX_KEY,
@@ -23,9 +23,15 @@ class Searches {
         baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json`,
         params: this.paramsMapbox,
       });
+
       const resp = await instance.get();
-      console.log(resp.data);
-      return [];
+
+      return resp.data.features.map((place) => ({
+        id: place.id,
+        name: place.place_name,
+        lng: place.center[0],
+        lat: place.center[1],
+      }));
     } catch (error) {
       return [];
     }
