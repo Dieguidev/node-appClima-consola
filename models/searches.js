@@ -84,6 +84,8 @@ class Searches {
       return;
     }
 
+    this.history = this.history.splice(0, 5); //limite de historial 5 elementos
+
     this.history.unshift(place.toLocaleLowerCase());
     //todo: grabar en db
     this.saveDB();
