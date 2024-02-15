@@ -12,8 +12,7 @@ class Searches {
       proximity: 'ip',
       language: 'es',
       limit: 5,
-      access_token:
-        'pk.eyJ1IjoiZGllZ3VpZGV2IiwiYSI6ImNsc243Z29rNjAxOGMyaW12dGN0NW93aWUifQ.lAdrVMV_I3K0f0zB9X8PXA',
+      access_token: process.env.MAPBOX_KEY,
     };
   }
 
